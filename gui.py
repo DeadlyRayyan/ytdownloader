@@ -17,10 +17,13 @@ def thumbnail():
     urllib.request.urlretrieve(f"http://i.ytimg.com/vi/{thmb}/default.jpg", "local-filename.jpg")
     filename = ImageTk.PhotoImage(Image.open('local-filename.jpg'))
     im1 = Image.open(r'local-filename.jpg')
-    im1.save(r'localf.bmp')
-    filename = ImageTk.PhotoImage(Image.open('localf.bmp'))
+    im1.save(r'localf.gif')
+    filename = ImageTk.PhotoImage(Image.open('localf.gif'))
+    Image.open('localf.gif').resize((20, 20))
     canvas.create_image(20, 20, image=filename)
     canvas.pack()
+    l1 = tk.Label(master = frame4, image = 'localf.gif')
+    l1.pack()
 def save():
     beginning = tk.Label(
         master=frame2,
