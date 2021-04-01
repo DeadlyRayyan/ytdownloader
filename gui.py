@@ -9,13 +9,16 @@ import urllib.request
 def thumbnail():
     link = video.get()
     thmb = link[17:]
-    urllib.request.urlretrieve(f"http://i.ytimg.com/vi/{thmb}/default.jpg", "local-filename.jpg")
-    filename = ImageTk.PhotoImage(file="local-filename.jpg")
     canvas = Canvas(
-        master = frame4,
+        master=frame4,
         width=300,
         height=300
     )
+    urllib.request.urlretrieve(f"http://i.ytimg.com/vi/{thmb}/default.jpg", "local-filename.jpg")
+    filename = ImageTk.PhotoImage(Image.open('local-filename.jpg'))
+    im1 = Image.open(r'local-filename.jpg')
+    im1.save(r'localf.bmp')
+    filename = ImageTk.PhotoImage(Image.open('localf.bmp'))
     canvas.create_image(20, 20, image=filename)
     canvas.pack()
 def save():
