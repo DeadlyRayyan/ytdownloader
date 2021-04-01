@@ -12,7 +12,7 @@ def thumbnail():
     canvas = Canvas(
         master=frame4,
         width=300,
-        height=300
+        height=100,
     )
     urllib.request.urlretrieve(f"http://i.ytimg.com/vi/{thmb}/default.jpg", "local-filename.jpg")
     filename = ImageTk.PhotoImage(Image.open('local-filename.jpg'))
@@ -20,7 +20,7 @@ def thumbnail():
     im1.save(r'localf.gif')
     filename = ImageTk.PhotoImage(Image.open('localf.gif'))
     Image.open('localf.gif').resize((20, 20))
-    canvas.create_image(20, 20, image=filename)
+    canvas.create_image(120, 90, image=filename)
     canvas.pack()
     l1 = tk.Label(master = frame4, image = 'localf.gif')
     l1.pack()
@@ -51,8 +51,8 @@ file_path = os.path.join(homedir, 'Desktop')
 
 window = tk.Tk()
 
-frame4 = tk.Frame(master=window, width=50, bg="white")
-frame4.pack(fill=tk.BOTH, side=tk.BOTTOM, expand=True)
+frame4 = tk.Frame(master=window, width=200, bg="white")
+frame4.pack(fill=tk.BOTH, side=tk.RIGHT, expand=True)
 
 frame1 = tk.Frame(master=window, width=200, height=100, bg="red")
 frame1.pack(fill=tk.BOTH, side=tk.LEFT, expand=True)
