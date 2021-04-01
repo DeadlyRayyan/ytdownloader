@@ -8,7 +8,7 @@ from tkinter import Canvas
 
 def thumbnail():
     link = video.get()
-    thmb = link[18:]
+    thmb = link[17:]
     img = ImageTk.PhotoImage(Image.open((requests.get(f"http://i.ytimg.com/vi/{thmb}/default.jpg"
 , stream=True).raw)))
     canvas = Canvas(
